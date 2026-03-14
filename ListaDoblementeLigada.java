@@ -33,7 +33,7 @@ public class ListaDoblementeLigada<T> {
     if(indice < 0 || indice > this.elementos-1){
       throw new IndexOutOfBoundsException("Indice fuera del rango permitido");
     }
-    return null
+    return null;
   }
 
   public boolean remove(Nodo<T> objeto){
@@ -49,7 +49,7 @@ public class ListaDoblementeLigada<T> {
 
   @Override
   public String toString(){
-    if(this.elementos = 0){
+    if(this.elementos == 0){
       return "cabeza -> null";
     }
     String cadena = "cabeza ->";
@@ -58,7 +58,7 @@ public class ListaDoblementeLigada<T> {
     for(int i = 0; i < this.elementos; i++){
       if(actual.getSiguiente() == null){
         cadena += actual + " -> ";
-        actual.actual.getSiguiente();
+        actual = actual.getSiguiente();
       }else{
         cadena += actual  + " <-> ";
         actual = actual.getSiguiente();

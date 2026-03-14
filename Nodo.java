@@ -34,7 +34,7 @@ public class Nodo<T>{
     }
 
     @Override
-    public booelan equals(Object objeto){
+    public boolean equals(Object objeto){
       /**
        * Si el objeto que manda a llamar el método equals se compara consigo mismo.
       **/
