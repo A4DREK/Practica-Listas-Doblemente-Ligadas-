@@ -1,7 +1,15 @@
-public class ListaDoblementeLigada<T> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ListaDoblementeLigada<T> implements Iterable<T> {
   private Nodo<T> cabeza;
   private Nodo<T> rabo;
   private int elementos; //Este se refiere al tamaño de la lista
+
+  @Override
+  public Iterator<T> iterator(){
+    return new IteradorLista();
+  }
 
   public boolean isEmpty(){
     return this.cabeza == null && this.rabo == null;
@@ -212,7 +220,7 @@ public class ListaDoblementeLigada<T> {
     System.out.println(lista.remove(6));
     System.out.println("\n" + lista + "\n");
 
-    System.out.println(lista.remove(8));
+    System.out.println(lista.remove(7));
     System.out.println(lista);
 
     // ListaDoblementeLigada<Integer> lista2 = new ListaDoblementeLigada<>();
@@ -222,4 +230,31 @@ public class ListaDoblementeLigada<T> {
     // System.out.println(lista2);
 
   }
+
+  private class IteradorLista implements Iterator<T>{
+  private Nodo<T> actual;
+
+  public IteradorLista(){
+    this.actual = cabeza;
+  }
+
+  @Override
+  public boolean hasNext() {
+    return actual != null;
+  }
+
+  @Override
+  public T next() {
+    if (!hasNext()) {
+      throw new NoSuchElementException("No hay más elementos en la lista");
+    }
+    
+    T dato = actual.getElemento();
+    actual = actual.getSiguiente();
+    return dato;
+  }
 }
+}
+
+
+
